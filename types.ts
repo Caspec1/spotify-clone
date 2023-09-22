@@ -38,7 +38,7 @@ export interface Price {
   type?: Stripe.Price.Type;
   interval?: Stripe.Price.Recurring.Interval;
   interval_count?: number;
-  trial_period_days?: string | null;
+  trial_period_days?: number | null;
   metadata?: Stripe.Metadata;
   products?: Product;
 }
@@ -60,4 +60,8 @@ export interface Subscription {
   trial_start?: string;
   trial_end?: string;
   prices?: Price
+}
+
+export interface ProductWithPrice extends Product {
+  prices?: Price[]
 }
